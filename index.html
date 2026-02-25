@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>✈️ Tobias & Erica — 2027 Travel Plans</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #f4e4dc;
+    --rose: #e8a598;
+    --deep-rose: #c97b6b;
+    --sage: #b5c4b1;
+    --deep-sage: #8fa889;
+    --cream: #fdf8f4;
+    --warm-brown: #6b4c3b;
+    --gold: #c9a84c;
+    --soft-black: #2d2421;
+    --lavender: #d4c5e2;
+    --sky: #b8d4e3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--soft-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 40%, var(--sky) 70%, var(--lavender) 100%);
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(232,165,152,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(184,212,227,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(212,197,226,0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, -2%) rotate(1deg); }
+    66% { transform: translate(-1%, 1%) rotate(-0.5deg); }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 3s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--warm-brown);
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+  }
+
+  .hero h1 span {
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-rose);
+    font-size: 1.1em;
+  }
+
+  .hero .subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--deep-rose);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .year-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), #e0c068);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    letter-spacing: 3px;
+    box-shadow: 0 4px 15px rgba(201,168,76,0.3);
+    margin-bottom: 2rem;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: var(--deep-rose);
+    opacity: 0.7;
+    animation: fadeInUp 2s ease infinite;
+  }
+
+  @keyframes fadeInUp {
+    0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 0.8; transform: translateX(-50%) translateY(-5px); }
+  }
+
+  /* Section Styles */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--warm-brown);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header .section-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--rose), var(--gold));
+    margin: 0.8rem auto;
+    border-radius: 2px;
+  }
+
+  .section-header p {
+    color: var(--deep-rose);
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+  }
+
+  /* Destination Cards */
+  .destinations {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .dest-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(45,36,33,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .dest-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(45,36,33,0.12);
+  }
+
+  .dest-header {
+    padding: 2rem 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .dest-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    flex-shrink: 0;
+  }
+
+  .dest-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--warm-brown);
+  }
+
+  .dest-header .dest-date {
+    font-size: 0.85rem;
+    color: var(--deep-rose);
+    font-weight: 500;
+  }
+
+  .dest-body {
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .dest-body p {
+    color: #5a4a42;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .dest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .tag-rose { background: rgba(232,165,152,0.2); color: var(--deep-rose); }
+  .tag-sage { background: rgba(181,196,177,0.3); color: var(--deep-sage); }
+  .tag-sky { background: rgba(184,212,227,0.3); color: #5a8fa8; }
+  .tag-lavender { background: rgba(212,197,226,0.3); color: #7a6b8a; }
+  .tag-gold { background: rgba(201,168,76,0.2); color: #a08530; }
+
+  .dest-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  .status-dream { background: rgba(212,197,226,0.3); color: #7a6b8a; }
+  .status-planning { background: rgba(201,168,76,0.2); color: #a08530; }
+  .status-researching { background: rgba(184,212,227,0.3); color: #5a8fa8; }
+
+  /* Budget Section */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .budget-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(45,36,33,0.06);
+  }
+
+  .budget-card .budget-emoji { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .budget-card .budget-label { font-size: 0.85rem; color: var(--deep-rose); font-weight: 500; }
+  .budget-card .budget-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--warm-brown);
+    font-weight: 700;
+    margin-top: 0.3rem;
+  }
+
+  /* Wishlist */
+  .wishlist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) { .wishlist-grid { grid-template-columns: 1fr; } }
+
+  .wishlist-col h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--warm-brown);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .wishlist-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .wishlist-col li {
+    background: white;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #5a4a42;
+    box-shadow: 0 2px 10px rgba(45,36,33,0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .wishlist-col li::before { content: '✨'; }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--rose), var(--sage), var(--sky), var(--lavender));
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 2.5rem 1.5rem;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.3rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--rose);
+  }
+
+  .timeline-item:nth-child(2)::before { border-color: var(--sage); }
+  .timeline-item:nth-child(3)::before { border-color: var(--sky); }
+  .timeline-item:nth-child(4)::before { border-color: var(--lavender); }
+
+  .timeline-item .tl-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--deep-rose);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .timeline-item .tl-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--warm-brown);
+    margin: 0.2rem 0;
+  }
+
+  .timeline-item .tl-desc {
+    font-size: 0.9rem;
+    color: #5a4a42;
+  }
+
+  /* Notes Section */
+  .notes-area {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px rgba(45,36,33,0.06);
+    border: 2px dashed rgba(232,165,152,0.3);
+  }
+
+  .notes-area h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--deep-rose);
+    margin-bottom: 1rem;
+  }
+
+  .notes-area p {
+    color: #8a7a72;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(180deg, var(--cream), var(--blush));
+  }
+
+  .footer .hearts {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: var(--deep-rose);
+  }
+
+  .footer .small {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #b8a8a0;
+    margin-top: 0.5rem;
+  }
+
+  /* Divider */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--rose), transparent);
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  /* Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-emoji">✈️</div>
+    <h1>Tobias <span>&</span> Erica</h1>
+    <div class="subtitle">Our Adventures Together</div>
+    <div class="year-badge">2 0 2 7</div>
+    <p style="font-size: 0.95rem; color: var(--warm-brown); max-width: 500px; margin: 0 auto;">
+      From Umeå to San Diego and everywhere in between — here's where we're going next 🌍
+    </p>
+  </div>
+  <div class="scroll-hint">scroll down ↓</div>
+</section>
+
+<!-- Destinations -->
+<section class="section">
+  <div class="section-header fade-in">
+    <h2>Dream Destinations</h2>
+    <div class="section-line"></div>
+    <p>Places we want to explore together</p>
+  </div>
+
+  <div class="destinations">
+    <!-- Japan -->
+    <div class="dest-card fade-in">
+      <div class="dest-header">
+        <div class="dest-icon" style="background: rgba(232,165,152,0.15);">🇯🇵</div>
+        <div>
+          <h3>Japan</h3>
+          <div class="dest-date">Spring 2027 — Cherry Blossom Season</div>
+        </div>
+      </div>
+      <div class="dest-body">
+        <p>Tokyo, Kyoto, Osaka — the ultimate couple trip. Cherry blossoms, ramen, temples, and Studio Ghibli. We've both dreamed about this one.</p>
+        <div class="dest-tags">
+          <span class="tag tag-rose">🌸 Cherry Blossoms</span>
+          <span class="tag tag-sage">🍜 Food Tour</span>
+          <span class="tag tag-sky">🏯 Temples</span>
+          <span class="tag tag-lavender">🎮 Akihabara</span>
+        </div>
+        <div class="dest-status status-dream">💭 Dream Trip</div>
+      </div>
+    </div>
+
+    <!-- Korea -->
+    <div class="dest-card fade-in">
+      <div class="dest-header">
+        <div class="dest-icon" style="background: rgba(184,212,227,0.2);">🇰🇷</div>
+        <div>
+          <h3>South Korea</h3>
+          <div class="dest-date">Spring 2027 — Combine with Japan?</div>
+        </div>
+      </div>
+      <div class="dest-body">
+        <p>Seoul, Busan, Jeju Island — visiting Erica's roots. Korean BBQ, K-beauty shopping, Bukchon Hanok Village, and the street food scene.</p>
+        <div class="dest-tags">
+          <span class="tag tag-rose">🥘 Korean BBQ</span>
+          <span class="tag tag-sky">🏝️ Jeju Island</span>
+          <span class="tag tag-lavender">🛍️ Myeongdong</span>
+          <span class="tag tag-gold">🏠 Heritage</span>
+        </div>
+        <div class="dest-status status-dream">💭 Dream Trip</div>
+      </div>
+    </div>
+
+    <!-- Hawaii -->
+    <div class="dest-card fade-in">
+      <div class="dest-header">
+        <div class="dest-icon" style="background: rgba(181,196,177,0.2);">🌺</div>
+        <div>
+          <h3>Hawaii (Round 2)</h3>
+          <div class="dest-date">Summer 2027</div>
+        </div>
+      </div>
+      <div class="dest-body">
+        <p>Where it all started. This time as a married couple 💍 — Maui sunsets, snorkeling, shaved ice, and making new memories where we first met.</p>
+        <div class="dest-tags">
+          <span class="tag tag-sage">🏖️ Beaches</span>
+          <span class="tag tag-sky">🐠 Snorkeling</span>
+          <span class="tag tag-rose">🌅 Sunsets</span>
+          <span class="tag tag-gold">💕 Anniversary</span>
+        </div>
+        <div class="dest-status status-planning">📝 Let's Plan This</div>
+      </div>
+    </div>
+
+    <!-- Sweden -->
+    <div class="dest-card fade-in">
+      <div class="dest-header">
+        <div class="dest-icon" style="background: rgba(212,197,226,0.2);">🇸🇪</div>
+        <div>
+          <h3>Sweden — Erica's First Visit</h3>
+          <div class="dest-date">Winter 2027 — Northern Lights Season</div>
+        </div>
+      </div>
+      <div class="dest-body">
+        <p>Showing Erica my world — Umeå in winter, northern lights, fika, Stockholm city trip, maybe ICEHOTEL in Jukkasjärvi. Cozy Swedish winter vibes.</p>
+        <div class="dest-tags">
+          <span class="tag tag-lavender">🌌 Northern Lights</span>
+          <span class="tag tag-sage">☕ Fika</span>
+          <span class="tag tag-sky">🏔️ ICEHOTEL</span>
+          <span class="tag tag-rose">🏡 Meet Family</span>
+        </div>
+        <div class="dest-status status-researching">🔍 Researching</div>
+      </div>
+    </div>
+
+    <!-- Europe Road Trip -->
+    <div class="dest-card fade-in">
+      <div class="dest-header">
+        <div class="dest-icon" style="background: rgba(201,168,76,0.15);">🇪🇺</div>
+        <div>
+          <h3>Europe Road Trip</h3>
+          <div class="dest-date">Fall 2027</div>
+        </div>
+      </div>
+      <div class="dest-body">
+        <p>Italy, Greece, or Spain — pick a coast and just drive. Local food, tiny villages, ocean views. No plan, just vibes.</p>
+        <div class="dest-tags">
+          <span class="tag tag-gold">🚗 Road Trip</span>
+          <span class="tag tag-rose">🍝 Italian Food</span>
+          <span class="tag tag-sky">🏖️ Mediterranean</span>
+          <span class="tag tag-sage">🍷 Wine Country</span>
+        </div>
+        <div class="dest-status status-dream">💭 Dream Trip</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Timeline -->
+<section class="section">
+  <div class="section-header fade-in">
+    <h2>Rough Timeline</h2>
+    <div class="section-line"></div>
+    <p>Our year of adventures</p>
+  </div>
+
+  <div class="timeline fade-in">
+    <div class="timeline-item">
+      <div class="tl-date">Spring 2027</div>
+      <div class="tl-title">🌸 Japan + Korea</div>
+      <div class="tl-desc">2-3 weeks in Asia. Cherry blossom season (late March - mid April). Combine both countries in one epic trip.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Summer 2027</div>
+      <div class="tl-title">🌺 Hawaii</div>
+      <div class="tl-desc">A week in paradise. Revisit where we first met — this time as husband and wife.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Fall 2027</div>
+      <div class="tl-title">🇪🇺 Europe</div>
+      <div class="tl-desc">Mediterranean road trip. Drive the Amalfi Coast, explore Greek islands, or get lost in Barcelona.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="tl-date">Winter 2027</div>
+      <div class="tl-title">🇸🇪 Sweden</div>
+      <div class="tl-desc">Erica's first Swedish winter. Northern lights, ICEHOTEL, Christmas markets, and meeting the family.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Budget -->
+<section class="section">
+  <div class="section-header fade-in">
+    <h2>Travel Fund</h2>
+    <div class="section-line"></div>
+    <p>Let's make it happen</p>
+  </div>
+
+  <div class="budget-grid fade-in">
+    <div class="budget-card">
+      <div class="budget-emoji">✈️</div>
+      <div class="budget-label">Flights</div>
+      <div class="budget-amount">$5,000</div>
+    </div>
+    <div class="budget-card">
+      <div class="budget-emoji">🏨</div>
+      <div class="budget-label">Hotels & Stays</div>
+      <div class="budget-amount">$4,000</div>
+    </div>
+    <div class="budget-card">
+      <div class="budget-emoji">🍜</div>
+      <div class="budget-label">Food & Fun</div>
+      <div class="budget-amount">$3,000</div>
+    </div>
+    <div class="budget-card">
+      <div class="budget-emoji">💰</div>
+      <div class="budget-label">Total Goal</div>
+      <div class="budget-amount" style="color: var(--gold);">$12,000+</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Wishlist -->
+<section class="section">
+  <div class="section-header fade-in">
+    <h2>Our Wishlist</h2>
+    <div class="section-line"></div>
+    <p>Things we each want to do</p>
+  </div>
+
+  <div class="wishlist-grid fade-in">
+    <div class="wishlist-col">
+      <h3>🧔 Tobias</h3>
+      <ul>
+        <li>Visit Akihabara gaming district</li>
+        <li>Try authentic Japanese ramen</li>
+        <li>See the northern lights together</li>
+        <li>Drive the Amalfi Coast</li>
+        <li>Pokémon Center in Tokyo</li>
+      </ul>
+    </div>
+    <div class="wishlist-col">
+      <h3>👩 Erica</h3>
+      <ul>
+        <li>Cherry blossom picnic in Kyoto</li>
+        <li>Korean street food in Myeongdong</li>
+        <li>Santorini sunset photos</li>
+        <li>Swedish fika & cinnamon buns</li>
+        <li>ICEHOTEL experience</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Notes -->
+<section class="section">
+  <div class="section-header fade-in">
+    <h2>Notes & Ideas</h2>
+    <div class="section-line"></div>
+    <p>Things to remember</p>
+  </div>
+
+  <div class="notes-area fade-in">
+    <h3>📝 Open Notes</h3>
+    <p>This is our shared space for travel ideas, links, and random thoughts about our trips. Add anything here!</p>
+    <br>
+    <p>• Check visa requirements for Japan (Swedish + US passport holders)</p>
+    <p>• Look into JR Pass for Japan trains</p>
+    <p>• Erica wants matching travel outfits 👀</p>
+    <p>• Save airline miles from any flights this year</p>
+    <p>• Research Airbnb vs hotels for each destination</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<section class="footer">
+  <div class="hearts">💕</div>
+  <p>The world is ours to explore</p>
+  <p class="small">Made with love — Tobias & Erica, 2027</p>
+</section>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
